@@ -31,7 +31,7 @@ def csv_to_json(csvf, jsonf):
             jsonf_o.write(jsonString)
 
 if __name__ == "__main__":
-    csv_file = r"./billing.csv"
-    json_file = r"./resource-group-costs-json.txt"
+    csv_file = input("Input the CSV file path\n") #r"./billing.csv"
+    json_file = input("Input the JSON file path\n") #r"./resource-group-costs-json.txt"
 
     csv_to_json(csv_file, json_file)
