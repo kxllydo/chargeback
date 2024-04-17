@@ -20,12 +20,14 @@ def csv_to_json(csvf, jsonf):
             csvr = csv.DictReader(csvf_o)
 
             for row in csvr:
-                new_row = {}
-                new_row['RG'] = row['ResourceGroup']
-                new_row['Cost'] = row['Cost']
-                #new_row['Tags'] = row['Tags']
+                # print(row)
+                # new_row = {}
+                # new_row['RG'] = row['Resource Group']
+                # new_row['Cost'] = row['Cost']
+                # new_row['Tags'] = row['Tags']
 
-                json_array.append(new_row)
+                json_array.append(row)
+                print(row)
 
             jsonString = json.dumps(json_array, indent = 4)
             jsonf_o.write(jsonString)
