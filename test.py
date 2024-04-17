@@ -1,39 +1,41 @@
+from openpyxl import Workbook, load_workbook
+import pandas as pd
 import csv
 import json
+import math
 
-def csv_to_json(csvf, jsonf):
-    '''
-        Pre-processing of data to clean up irrelevant fields.
-        Only relevant fields are: Resource Group, Cost, and Tags.
 
-        Args:
-            csvf (string)   : Path to .CSV file to be read
-            jsonf (string)  : Path to .JSON file to be written
-
-        Returns:
-            jsonf
-    '''
-
-    with open(csvf, 'r', encoding = 'utf-8-sig') as csvf_o:
-        with open(jsonf, 'w', encoding = 'utf-8') as jsonf_o:
-            json_array = []
-            csvr = csv.DictReader(csvf_o)
-
-            for row in csvr:
-                for item in json_array:
-                    if row["App"] == item["App"]:
-                        item['Cost'] += row['Cost']
-                        break
-                    else:
-                        json_array.append(row)
-                if (len(json_array) == 0) :
-                    json_array.append(row)
-
-            jsonString = json.dumps(json_array, indent = 4)
-            jsonf_o.write(jsonString)
+def applicationMerger(excelSheet, applications):
+    sumDict = {}
+    uniqueApps = []
+    for index, value in enumerate(applications, start=2):
+        cost = (excelSheet.loc[index,"Unnamed: 47"])
+        if math.isnan(cost):
+            cost = 0
+        else:
+            cost = round(cost, 2)
+        if value not in uniqueApps:
+            uniqueApps.append(value)
+            sumDict[value] = cost
+        else:
+            sumDict[value] += cost
+    return sumDict
 
 if __name__ == "__main__":
-    csv_file = "CSVs/updated1.csv" #input("Input the CSV file path\n") #r"./billing.csv"
-    json_file = "hi.txt" #input("Input the JSON file path\n") #r"./resource-group-costs-json.txt"
+    excel = "c:\\Users\\do-kelly\\Downloads\\summary.xlsx"
+    sheet = "Summary"
 
-    csv_to_json(csv_file, json_file)
+    summary = pd.read_excel(excel, sheet_name = sheet)
+    applications = summary.loc[2:221, "Unnamed: 0"]
+    # print(summary)
+
+    print(applicationMerger(summary, applications))
+
+
+
+    #for app in applications:
+
+    # testCol = test["Resource Group"]
+    # for value in testCol:
+    #     print(value)
+   
