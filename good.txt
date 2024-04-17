@@ -1,0 +1,1102 @@
+[
+    {
+        "$": " 9.33 ",
+        "App": " Infrastructure ",
+        "PC": "Allocation"
+    },
+    {
+        "$": " 7.01 ",
+        "App": " ARB Testing ",
+        "PC": "Allocation"
+    },
+    {
+        "$": " 70.52 ",
+        "App": " Data Foundations - Data Lake Test ",
+        "PC": "090949400"
+    },
+    {
+        "$": " 3,039.18 ",
+        "App": " Data Foundations - Data WH Prod ",
+        "PC": "090949400"
+    },
+    {
+        "$": " 6,014.80 ",
+        "App": " Data Foundations - Data WH - Dev ",
+        "PC": "090949400"
+    },
+    {
+        "$": " 2,838.78 ",
+        "App": " AUS PowerBi SaaS Scaling with Azure compute ",
+        "PC": "090949400"
+    },
+    {
+        "$": " 0.00 ",
+        "App": " Data Foundations - Data - WH - Test ",
+        "PC": "090949400"
+    },
+    {
+        "$": " 20.88 ",
+        "App": " EDM ",
+        "PC": "000005939"
+    },
+    {
+        "$": " 466.51 ",
+        "App": " SOC - AD Logs ",
+        "PC": "000018544"
+    },
+    {
+        "$": " 416.91 ",
+        "App": " SOC - WVD Sessions ",
+        "PC": "000018544"
+    },
+    {
+        "$": " 21.73 ",
+        "App": " Messaging Services ",
+        "PC": "090946800 "
+    },
+    {
+        "$": " 21.71 ",
+        "App": " Messaging Services ",
+        "PC": "090946800 "
+    },
+    {
+        "$": " 21.75 ",
+        "App": " Messaging Services ",
+        "PC": "090946800 "
+    },
+    {
+        "$": " 696.00 ",
+        "App": " Data Foundations - Power BI ",
+        "PC": "090949400"
+    },
+    {
+        "$": " 0.59 ",
+        "App": " Infrastructure (Messaging) ",
+        "PC": "090946800 "
+    },
+    {
+        "$": " 246.66 ",
+        "App": " Chile Power BI ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 4,204.63 ",
+        "App": " Chile Power BI ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 0.56 ",
+        "App": " Chile Power BI ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 0.00 ",
+        "App": " SOC - Cloud Security RG ",
+        "PC": "000018544"
+    },
+    {
+        "$": " -   ",
+        "App": " PCF - Confluent ",
+        "PC": "000010825"
+    },
+    {
+        "$": " 972.25 ",
+        "App": " Avendra CPS DR -Prod ",
+        "PC": "300065300"
+    },
+    {
+        "$": " 13,133.76 ",
+        "App": " SOC - WVD Sessions ",
+        "PC": "000018544"
+    },
+    {
+        "$": " 152.64 ",
+        "App": " Chile Business Dynamics ",
+        "PC": "004250448"
+    },
+    {
+        "$": " 0.00 ",
+        "App": " EDM ",
+        "PC": "000005939"
+    },
+    {
+        "$": " 2,096.61 ",
+        "App": " EDM ",
+        "PC": "000005939"
+    },
+    {
+        "$": " 944.75 ",
+        "App": " EDM ",
+        "PC": "000005939"
+    },
+    {
+        "$": " 704.62 ",
+        "App": " EDM ",
+        "PC": "000005939"
+    },
+    {
+        "$": " 136.29 ",
+        "App": " EDM CHI ML (WIPRO POC) ",
+        "PC": "000005939"
+    },
+    {
+        "$": " 0.00 ",
+        "App": " SAS Initiative ",
+        "PC": "000005939"
+    },
+    {
+        "$": " 161.19 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 543.23 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 112.32 ",
+        "App": " Hoja De Gestion - International Spain ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 438.50 ",
+        "App": " Hoja De Gestion - International Spain ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 21.95 ",
+        "App": " Hoja De Gestion - International Spain ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 5.55 ",
+        "App": " Hoja De Gestion - International Spain ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 107.33 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 3.54 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 14.81 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 0.03 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 52.20 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 52.20 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 107.20 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 330.02 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 20.00 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 356.83 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 29.18 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 1.61 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 83.81 ",
+        "App": " Hoja De Gestion - International Spain ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 262.67 ",
+        "App": " Hoja De Gestion - International Spain ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 599.71 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 306.38 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 38.37 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 914.10 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 55.77 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 23.40 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 36.50 ",
+        "App": " Hoja De Gestion - International Spain ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 8.36 ",
+        "App": " Hoja De Gestion - International Spain ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 115.02 ",
+        "App": " Hoja De Gestion - International Spain ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 3.95 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 153.18 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 687.61 ",
+        "App": " Hoja De Gestion - International Spain ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 68.06 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 414.74 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 40.78 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 83.28 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 42.94 ",
+        "App": " Hoja De Gestion - International Spain ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 140.75 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 6.77 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 95.27 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 52.25 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 59.19 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 124.64 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 94.28 ",
+        "App": " Hoja De Gestion - International Spain ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 630.21 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 175.15 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 25.06 ",
+        "App": " Hoja De Gestion - International Spain ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 5.25 ",
+        "App": " Hoja De Gestion - International Spain ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 178.64 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 405.61 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 5.92 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 744.13 ",
+        "App": " Hoja De Gestion - International Spain ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 34.56 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 21.72 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 22.04 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 388.95 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 20.68 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 0.00 ",
+        "App": " OpenAI Testing Chile ",
+        "PC": "000005939"
+    },
+    {
+        "$": " 0.80 ",
+        "App": " AUS Customer Portal - Dev ",
+        "PC": "090949400"
+    },
+    {
+        "$": " 233.87 ",
+        "App": " EDM Team OpenAI Testing ",
+        "PC": "000005939"
+    },
+    {
+        "$": " 1,053.61 ",
+        "App": " Facility Fit ",
+        "PC": "300067000"
+    },
+    {
+        "$": " 15.15 ",
+        "App": " Hoja De Gestion - International Spain ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 25.59 ",
+        "App": " Aramark OPENAI - Dev ",
+        "PC": "000005939"
+    },
+    {
+        "$": " 341.91 ",
+        "App": " Culinary Co-Pilot Openai ",
+        "PC": "000021648"
+    },
+    {
+        "$": " 23.60 ",
+        "App": " Avendra Ace Application - Dev/QA SourcingBI ",
+        "PC": "000017318"
+    },
+    {
+        "$": " 196.24 ",
+        "App": " Sherlok ",
+        "PC": "300939300"
+    },
+    {
+        "$": " 151.00 ",
+        "App": " Next Level VDI ",
+        "PC": "000019933"
+    },
+    {
+        "$": " 407.74 ",
+        "App": " Avendra Ace Application - Prod ",
+        "PC": "000017318"
+    },
+    {
+        "$": " 80.17 ",
+        "App": " Clarity Consultant Access ",
+        "PC": "600905800"
+    },
+    {
+        "$": " 23.75 ",
+        "App": " AUS Customer Portal - Prod ",
+        "PC": "090949400"
+    },
+    {
+        "$": " 65.79 ",
+        "App": " Destinations Web Sites Servers ",
+        "PC": "120895100"
+    },
+    {
+        "$": " 149.58 ",
+        "App": " EnablePlus Storage ",
+        "PC": "000021002"
+    },
+    {
+        "$": " 62.39 ",
+        "App": " Hoja De Gestion - International Spain ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 31.31 ",
+        "App": " Hoja De Gestion - International Spain ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 689.87 ",
+        "App": " Next Level Application ",
+        "PC": "000019933"
+    },
+    {
+        "$": " 63.78 ",
+        "App": " Avendra Ace Application - Dev/QA ",
+        "PC": "000017318"
+    },
+    {
+        "$": " 1.05 ",
+        "App": " Prima Web Storage ",
+        "PC": "090922300\u00a0 "
+    },
+    {
+        "$": " 0.00 ",
+        "App": " Rackspace Assessment ",
+        "PC": "Allocation"
+    },
+    {
+        "$": " 978.13 ",
+        "App": " Sherlok Prod ",
+        "PC": "300939300"
+    },
+    {
+        "$": " 9.30 ",
+        "App": " Sentinel Production Deployment ",
+        "PC": "000018544"
+    },
+    {
+        "$": " 40.14 ",
+        "App": " Avendra Ace Application - Production SourcingBI ",
+        "PC": "000017318"
+    },
+    {
+        "$": " 135.33 ",
+        "App": " SRA Assessment ",
+        "PC": "090955900 "
+    },
+    {
+        "$": " 32.19 ",
+        "App": " Hoja De Gestion - International Spain ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 226.35 ",
+        "App": " Avendra Matillion Prod ",
+        "PC": "000017318"
+    },
+    {
+        "$": " 73.53 ",
+        "App": " EDC AVS DR ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 20.55 ",
+        "App": " EDC AVS DR ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 168.93 ",
+        "App": " EDC AVS Production ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 39.08 ",
+        "App": " EDC AVS Production ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 0.00 ",
+        "App": " EDC AVS Production ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 206.03 ",
+        "App": " EDC AVS Production ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 16.38 ",
+        "App": " EDC AVS Production ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 831.71 ",
+        "App": " ecoBPM ",
+        "PC": "300491200"
+    },
+    {
+        "$": " 134.09 ",
+        "App": " GFF PROD - Azure DevOps ",
+        "PC": "000005942"
+    },
+    {
+        "$": " 2,184.76 ",
+        "App": " Identity Management - IIQ ",
+        "PC": "000010337"
+    },
+    {
+        "$": " 1,316.67 ",
+        "App": " Identity Management - IIQ ",
+        "PC": "000010337"
+    },
+    {
+        "$": " 2,016.13 ",
+        "App": " Identity Management - IIQ ",
+        "PC": "000010337"
+    },
+    {
+        "$": " 4,402.83 ",
+        "App": " Identity Management - IIQ ",
+        "PC": "000010337"
+    },
+    {
+        "$": " 277.27 ",
+        "App": " Avendra Matillion ",
+        "PC": "000017318"
+    },
+    {
+        "$": " 791.76 ",
+        "App": " Marketpro Invoice ",
+        "PC": "000018187"
+    },
+    {
+        "$": " 784.71 ",
+        "App": " Marketpro Invoice ",
+        "PC": "000018187"
+    },
+    {
+        "$": " 507.93 ",
+        "App": " Marketpro Invoice ",
+        "PC": "000018187"
+    },
+    {
+        "$": " 13.92 ",
+        "App": " Marketpro Invoice ",
+        "PC": "000018187"
+    },
+    {
+        "$": " 0.00 ",
+        "App": " Marketpro Invoice ",
+        "PC": "000018187"
+    },
+    {
+        "$": " 9.60 ",
+        "App": " Marketpro Invoice ",
+        "PC": "000018187"
+    },
+    {
+        "$": " 6.96 ",
+        "App": " Marketpro Invoice ",
+        "PC": "000018187"
+    },
+    {
+        "$": " 6.55 ",
+        "App": " Marketpro Invoice ",
+        "PC": "000018187"
+    },
+    {
+        "$": " 10.44 ",
+        "App": " Marketpro Invoice ",
+        "PC": "000018187"
+    },
+    {
+        "$": " 0.00 ",
+        "App": " Marketpro Invoice ",
+        "PC": "000018187"
+    },
+    {
+        "$": " 74.79 ",
+        "App": " Marketpro Invoice ",
+        "PC": "000018187"
+    },
+    {
+        "$": " 228.15 ",
+        "App": " Marketpro Invoice ",
+        "PC": "000018187"
+    },
+    {
+        "$": " 51.87 ",
+        "App": " Marketpro Invoice ",
+        "PC": "000018187"
+    },
+    {
+        "$": " 8.69 ",
+        "App": " Marketpro Invoice ",
+        "PC": "000018187"
+    },
+    {
+        "$": " 267.15 ",
+        "App": " Marketpro Invoice ",
+        "PC": "000018187"
+    },
+    {
+        "$": " 1,396.11 ",
+        "App": " Marketpro Invoice ",
+        "PC": "000018187"
+    },
+    {
+        "$": " 1.01 ",
+        "App": " Marketpro Invoice ",
+        "PC": "000018187"
+    },
+    {
+        "$": " 23.31 ",
+        "App": " Marketpro Invoice ",
+        "PC": "000018187"
+    },
+    {
+        "$": " 599.89 ",
+        "App": " Marketpro Invoice ",
+        "PC": "000018187"
+    },
+    {
+        "$": " 1.01 ",
+        "App": " Marketpro Invoice ",
+        "PC": "000018187"
+    },
+    {
+        "$": " 14.39 ",
+        "App": " Marketpro Invoice ",
+        "PC": "000018187"
+    },
+    {
+        "$": " 124.26 ",
+        "App": " Mexico Migration ",
+        "PC": "090921400"
+    },
+    {
+        "$": " 0.00 ",
+        "App": " Next Level Migration ",
+        "PC": "000019933"
+    },
+    {
+        "$": " 1,793.48 ",
+        "App": " O365 Veeam Backups ",
+        "PC": "090926400"
+    },
+    {
+        "$": " 14.61 ",
+        "App": " oBundle ",
+        "PC": "000019197"
+    },
+    {
+        "$": " 1,492.98 ",
+        "App": " Identity Management - Ping ",
+        "PC": "000010337"
+    },
+    {
+        "$": " 571.27 ",
+        "App": " Identity Management - Ping ",
+        "PC": "000010337"
+    },
+    {
+        "$": " 297.94 ",
+        "App": " Identity Management - Ping ",
+        "PC": "000010337"
+    },
+    {
+        "$": " 0.00 ",
+        "App": " Purple Squirrel POC ",
+        "PC": "Allocation"
+    },
+    {
+        "$": " 285.93 ",
+        "App": " Eventualas - Chile - Prod ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 282.51 ",
+        "App": " Eventualas - Chile - QA ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 0.00 ",
+        "App": " Messaging Services ",
+        "PC": "090946800 "
+    },
+    {
+        "$": " 0.00 ",
+        "App": " Messaging Services ",
+        "PC": "090946800 "
+    },
+    {
+        "$": " 0.21 ",
+        "App": " Messaging Services ",
+        "PC": "090946800 "
+    },
+    {
+        "$": " 5.53 ",
+        "App": " Messaging Services ",
+        "PC": "090946800 "
+    },
+    {
+        "$": " 105.16 ",
+        "App": " Salesforce -  Azure DevOps ",
+        "PC": "000009022"
+    },
+    {
+        "$": " 603.13 ",
+        "App": " SCCM Intune Storage Account ",
+        "PC": "000018544"
+    },
+    {
+        "$": " 56.05 ",
+        "App": " Toronto HQ Backups ",
+        "PC": "004701521"
+    },
+    {
+        "$": " 788.19 ",
+        "App": " Identity Management - Ping ",
+        "PC": "000010337"
+    },
+    {
+        "$": " 155.05 ",
+        "App": " IAM - VDI Sessions ",
+        "PC": "000010337"
+    },
+    {
+        "$": " 341.44 ",
+        "App": " SOC - WVD Management ",
+        "PC": "000018544"
+    },
+    {
+        "$": " 689.98 ",
+        "App": " SOC - WVD Sessions ",
+        "PC": "000018544"
+    },
+    {
+        "$": " 1,372.67 ",
+        "App": " Avendra CLP Engine -DEV ",
+        "PC": "000017318"
+    },
+    {
+        "$": " 1,270.86 ",
+        "App": " Avendra CLP Engine -Prod ",
+        "PC": "000017318"
+    },
+    {
+        "$": " 365.81 ",
+        "App": " Avendra CLP Engine -QA ",
+        "PC": "000017318"
+    },
+    {
+        "$": " 5,565.30 ",
+        "App": " Identity Management - IIQ ",
+        "PC": "000010337"
+    },
+    {
+        "$": " 2,020.61 ",
+        "App": " Identity Management - IIQ ",
+        "PC": "000010337"
+    },
+    {
+        "$": " 0.90 ",
+        "App": " TBD ",
+        "PC": "Allocation"
+    },
+    {
+        "$": " 0.60 ",
+        "App": " New TBD ",
+        "PC": "Allocation"
+    },
+    {
+        "$": " 16.70 ",
+        "App": " Infrastructure ",
+        "PC": "Allocation"
+    },
+    {
+        "$": " 0.88 ",
+        "App": " Infrastructure ",
+        "PC": "Allocation"
+    },
+    {
+        "$": " 0.00 ",
+        "App": " Infrastructure ",
+        "PC": "Allocation"
+    },
+    {
+        "$": " 72.33 ",
+        "App": " Identity Management - IIQ ",
+        "PC": "000010337"
+    },
+    {
+        "$": " 0.71 ",
+        "App": " Infrastructure ",
+        "PC": "Allocation"
+    },
+    {
+        "$": " 0.00 ",
+        "App": " Spain CPD Datacenter ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 0.01 ",
+        "App": " Infrastructure ",
+        "PC": "Allocation"
+    },
+    {
+        "$": " 15.37 ",
+        "App": " Unknown ",
+        "PC": "Allocation"
+    },
+    {
+        "$": " 12,254.82 ",
+        "App": " Express Route ",
+        "PC": "000018544"
+    },
+    {
+        "$": " 305.52 ",
+        "App": " Facilities-Sherlok ",
+        "PC": "300939300"
+    },
+    {
+        "$": " 2,282.50 ",
+        "App": " Facility Fit ",
+        "PC": "300067000"
+    },
+    {
+        "$": " 5,121.51 ",
+        "App": " Facility Fit ",
+        "PC": "300067000"
+    },
+    {
+        "$": " 3,898.11 ",
+        "App": " Facility Fit ",
+        "PC": "300067000"
+    },
+    {
+        "$": " 11,410.54 ",
+        "App": " Facility Fit ",
+        "PC": "300067000"
+    },
+    {
+        "$": " 57.72 ",
+        "App": " GFF PROD - Azure DevOps ",
+        "PC": "000004982"
+    },
+    {
+        "$": " 8.39 ",
+        "App": " GFF PROD - Azure DevOps ",
+        "PC": "000004982"
+    },
+    {
+        "$": " 0.01 ",
+        "App": " Avendra HPSI Resources ",
+        "PC": "000017318"
+    },
+    {
+        "$": " 1.28 ",
+        "App": " Infrastructure ",
+        "PC": "Allocation"
+    },
+    {
+        "$": " 0.00 ",
+        "App": " Infrastructure ",
+        "PC": "Allocation"
+    },
+    {
+        "$": " 0.00 ",
+        "App": " Infrastructure ",
+        "PC": "Allocation"
+    },
+    {
+        "$": " 0.00 ",
+        "App": " Marko Purview POC ",
+        "PC": "000005939"
+    },
+    {
+        "$": " 16.01 ",
+        "App": " Infrastructure ",
+        "PC": "Allocation"
+    },
+    {
+        "$": " 0.00 ",
+        "App": " Infrastructure ",
+        "PC": "Allocation"
+    },
+    {
+        "$": " 0.08 ",
+        "App": " Prima Web POC ",
+        "PC": "Allocation"
+    },
+    {
+        "$": " 108.36 ",
+        "App": " Refreshment Data Project ",
+        "PC": "700936800"
+    },
+    {
+        "$": " 245.69 ",
+        "App": " OpenAI Testing Chile ",
+        "PC": "000005939"
+    },
+    {
+        "$": " 1.97 ",
+        "App": " PCF - FrontLine Enablement ",
+        "PC": "000010825"
+    },
+    {
+        "$": " 0.00 ",
+        "App": " SCCM ",
+        "PC": "Allocation"
+    },
+    {
+        "$": " 385.64 ",
+        "App": " SharePoint Management VM - Hammad Haidari ",
+        "PC": "Allocation"
+    },
+    {
+        "$": " 570.34 ",
+        "App": " SOC Deployment ",
+        "PC": "000018544"
+    },
+    {
+        "$": " 0.37 ",
+        "App": " Avendra PLA Storage ",
+        "PC": "000017318"
+    },
+    {
+        "$": " -   ",
+        "App": " Azure Devops Organizations Charges Broken out below ",
+        "PC": "Allocation"
+    },
+    {
+        "$": " 546.32 ",
+        "App": " AvendraGroup - AZDO ",
+        "PC": "000017318"
+    },
+    {
+        "$": " 8.90 ",
+        "App": " Aramark-IAM - AZDO ",
+        "PC": "000010337"
+    },
+    {
+        "$": " 59.87 ",
+        "App": " AramarkEnable - AZDO ",
+        "PC": "000021002"
+    },
+    {
+        "$": " 152.45 ",
+        "App": " Aramark-GSC-GPO - AZDO ",
+        "PC": "000017318"
+    },
+    {
+        "$": " 146.39 ",
+        "App": " AramarkGOE - AZDO ",
+        "PC": "090922300\u00a0 "
+    },
+    {
+        "$": " 22.45 ",
+        "App": " AramarkFinancialApps - AZDO ",
+        "PC": "000004982"
+    },
+    {
+        "$": " 269.42 ",
+        "App": " Aramark-marko - AZDO ",
+        "PC": "000005939"
+    },
+    {
+        "$": " 174.00 ",
+        "App": " cpsAvendra - AZDO ",
+        "PC": "300065300"
+    },
+    {
+        "$": " 11.23 ",
+        "App": " FacilitiesProjects - AZDO  ",
+        "PC": "300491200"
+    },
+    {
+        "$": " 5.61 ",
+        "App": " ARAZDEVOPS - AZDO ",
+        "PC": "000005578"
+    },
+    {
+        "$": " 36.77 ",
+        "App": " AramarkMenuManagement - AZDO ",
+        "PC": "000021648"
+    },
+    {
+        "$": " 80.77 ",
+        "App": " MarketPRO - AZDO ",
+        "PC": "000018187"
+    }
+]
