@@ -25,14 +25,14 @@ if __name__ == "__main__":
     year = "2024"
     # DELETE LATER
 
-    archive_directory = "archives"
+    archive_directory = "../../archives"  # Path to top level parent folder of all files
     check_for_perms(archive_directory)
     check_for_perms(archive_directory + os.sep + year)
     check_for_perms(archive_directory + os.sep + year + os.sep + month)
 
     archive_directory   = archive_directory + os.sep + year + os.sep + month + os.sep
     billing_file        = archive_directory + "billing.csv"
-    excel_file          = archive_directory + "chargeback.xlsx"
+    excel_file          = archive_directory + "help.xlsx"
     check_for_perms(billing_file)
     check_for_perms(excel_file)
 
