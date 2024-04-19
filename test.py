@@ -4,7 +4,7 @@ import csv
 import json
 import math
 
-def addDataAndHeader (wb, ws, path, dataList, columnNum, header):
+def addDataAndHeader (wb, ws, path, columnNum, header, dataList = []):
     '''
     This adds all of the headers to the group summary sheet
     @param wb is the workbook loaded using openpyxl
@@ -40,8 +40,8 @@ def rgComparer(path):
     
     wb = load_workbook(path)
     sheet = wb["RG Comparison"]
-    addDataAndHeader(wb, sheet, path, deleted, 4, "Deleted")
-    addDataAndHeader(wb, sheet, path, added, 5, "Added")
+    addDataAndHeader(wb, sheet, path, 4, "Deleted", deleted)
+    addDataAndHeader(wb, sheet, path, 5, "Added", added)
 
 def groupCostMerger(sheet):
     """
@@ -95,13 +95,20 @@ def creategroupSummarySheet(wb, path, groups, profit, allocation):
     wb.create_sheet("Group Summary")
     ws = wb["Group Summary"]
     headers = ["Applications", "Amount", "Infra Charge", "Adjustments", "Total Charge",	"Profit Center", "Account Code"]
-    for i, header in enumerate(headers, start=1):
-        ws.cell(row=1, column=i, value=header)
-    wb.save(path)
-    fillColumn(wb, ws, path, 1, list(groups))
-    fillColumn(wb, ws, path, 2, list(groups.values()))
-    fillColumn(wb, ws, path, 6, list(profit.values()))
-    fillColumn(wb, ws, path, 7, list(allocation.values()))
+    addDataAndHeader(wb, ws, path, 1, headers[0], list(groups))
+    addDataAndHeader(wb, ws, path, 2, headers[1], list(groups.values()))
+    addDataAndHeader(wb, ws, path, 3, headers[2])
+    addDataAndHeader(wb, ws, path, 4, headers[3])
+    addDataAndHeader(wb, ws, path, 5, headers[4])
+    addDataAndHeader(wb, ws, path, 5, headers[5], list(profit.values()))
+    addDataAndHeader(wb, ws, path, 6, headers[6], list(allocation.values()))
+    # for i, header in enumerate(headers, start=1):
+    #     ws.cell(row=1, column=i, value=header)
+    # wb.save(path)
+    # fillColumn(wb, ws, path, 1, list(groups))
+    # fillColumn(wb, ws, path, 2, list(groups.values()))
+    # fillColumn(wb, ws, path, 6, list(profit.values()))
+    # fillColumn(wb, ws, path, 7, list(allocation.values()))
 
 def fillColumn(wb, ws, path, colNum, data):
     row = 2
@@ -113,7 +120,7 @@ def fillColumn(wb, ws, path, colNum, data):
 
 
 if __name__ == "__main__":
-    excel = "c:\\Users\\do-kelly\\Downloads\\help.xlsx"
+    excel = "c:\\Users\\do-kelly\\Downloads\\helps.xlsx"
     sheet = "Summary"
 
     wb = load_workbook(excel)
