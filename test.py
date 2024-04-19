@@ -4,9 +4,14 @@ import csv
 import json
 import math
 
-def addDataColumn (wb, ws, path, dataList, columnNum, header):
+def addDataAndHeader (wb, ws, path, dataList, columnNum, header):
     '''
     This adds all of the headers to the group summary sheet
+    @param wb is the workbook loaded using openpyxl
+    @param ws is the worksheet opened using openpyxl
+    @path is a string of the path to the excel workbook
+    @columnNum is the column you want to add the header to
+    @header is the header you want to add to the excel sheet
     '''
     cell = ws.cell(row = 1, column = columnNum)
     cell.value = header
@@ -15,9 +20,12 @@ def addDataColumn (wb, ws, path, dataList, columnNum, header):
         cell.value = value
     wb.save(path)
 
-def rgComparer():
-    excel = "c:\\Users\\do-kelly\\Downloads\\help.xlsx"
-    comparison = pd.read_excel(excel, sheet_name = "RG Comparison")
+def rgComparer(path):
+    """
+    Tells you which resource groups were added or deleted from the previous month
+    @param path is the path to the excel workbook
+    """
+    comparison = pd.read_excel(path, sheet_name = "RG Comparison")
     lastMonthRg = comparison["Last Month RG"].tolist()
     currentMonthRg = comparison["Current Month RG"].tolist()
 
@@ -30,12 +38,17 @@ def rgComparer():
         if currentMonthRg not in lastMonthRg:
             added.append(rg)
     
-    wb = load_workbook(excel)
+    wb = load_workbook(path)
     sheet = wb["RG Comparison"]
-    addDataColumn(wb, sheet, excel, deleted, 4, "Deleted")
-    addDataColumn(wb, sheet, excel, added, 5, "Added")
+    addDataAndHeader(wb, sheet, path, deleted, 4, "Deleted")
+    addDataAndHeader(wb, sheet, path, added, 5, "Added")
 
 def groupCostMerger(sheet):
+    """
+    Combines the same groups and sums their costs
+    @param sheet is the sheet read in by using pandas
+    @return a dictionary of the groups and their costs
+    """
     colLength = len(sheet["Group"]) - 1
     applications = sheet.loc[0:colLength, "Group"]
     sumDict = {}
@@ -53,6 +66,12 @@ def groupCostMerger(sheet):
     return sumDict
 
 def merger(sheet, header):
+    """
+    General merger to assign relationship between non cost categories
+    @param sheet is the sheet read in by using pandas
+    @header is the header of the data you want to access
+    @return a dictionary of the group and other dataset
+    """
     colLength = len(sheet["Group"]) - 1
     applications = sheet.loc[0:colLength, "Group"]
     dict = {}
@@ -65,6 +84,14 @@ def merger(sheet, header):
     return dict
 
 def creategroupSummarySheet(wb, path, groups, profit, allocation):
+    """
+    Creates the group summary sheet and fills it with cost, PC, and AC
+    @param wb is the workbook loaded using openpyxl
+    @param path is a string path to the workbook
+    @param groups is the dicitonary of group and cost
+    @param profit is the dictionary of group and PC
+    @param allocaiton is the dictionary of group and AC
+    """
     wb.create_sheet("Group Summary")
     ws = wb["Group Summary"]
     headers = ["Applications", "Amount", "Infra Charge", "Adjustments", "Total Charge",	"Profit Center", "Account Code"]
