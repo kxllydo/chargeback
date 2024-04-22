@@ -11,7 +11,7 @@ def rgComparer(path):
     lastMonthRg = comparison["Last Month RG"].tolist()
     currentMonthRg = comparison["Current Month RG"].tolist()
 
-    deleted, added = []
+    deleted, added = [], []
     for rgs in lastMonthRg:
         if lastMonthRg not in currentMonthRg:
             deleted.append(rgs)

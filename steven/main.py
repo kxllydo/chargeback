@@ -32,7 +32,7 @@ if __name__ == "__main__":
 
     archive_directory   = archive_directory + os.sep + year + os.sep + month + os.sep
     billing_file        = archive_directory + "billing.csv"
-    excel_file          = archive_directory + "help.xlsx"
+    excel_file          = archive_directory + "chargeback.xlsx"
     check_for_perms(billing_file)
     check_for_perms(excel_file)
 
