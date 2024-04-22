@@ -3,6 +3,7 @@ import pandas as pd
 import csv
 import json
 import math
+import time
 
 def addDataAndHeader (wb, ws, path, columnNum, header, width = 0, dataList = []):
     '''
@@ -124,3 +125,46 @@ def creategroupSummarySheet(wb, sumSheet, path):
     addDataAndHeader(wb, ws, path, 5, headers[4], 16.64)
     addDataAndHeader(wb, ws, path, 5, headers[5], 15.45, list(pc.values()))
     addDataAndHeader(wb, ws, path, 6, headers[6], 15.45, list(ac.values()))
+
+def createChargeback(wb, sumSheet, path):
+    """
+    Creates chargeback sheet for the month
+    @param is the workbook opened by openpyxl
+    @param is the summary sheet opened by pandas
+    """
+    pc = merger(sumSheet, "PC")
+    ac = merger(sumSheet, "AC")
+    cost = groupCostMerger(sumSheet)
+    charge = infracharge(sumSheet, cost)
+
+
+    finalCosts = addCharges(cost, charge)
+    print(finalCosts)
+
+    owner = merger(sumSheet, "Owner")
+    wb.create_sheet("Customer Chargeback")
+    cost = groupCostMerger(sumSheet)
+
+    ws = wb["Customer Chargeback"]
+    headers = ["Owner","Applications","February (2024)","Profit Center", "AC"]
+    addDataAndHeader(wb, ws, path, 1, headers[0], 0, list(owner.values()))
+    addDataAndHeader(wb, ws, path, 2, headers[1], 0, list(owner))
+    addDataAndHeader(wb, ws, path, 3, headers[2], 0, list(finalCosts.values()))
+    addDataAndHeader(wb, ws, path, 4, headers[3], 0, list(pc.values()))
+    addDataAndHeader(wb, ws, path, 5, headers[4], 0, list(ac.values()))
+
+def addCharges(cost, infracharge):
+    """
+    Adds sales tax 3.05% and infracharge to the total costs
+    @param cost is the dictionary of groups and total costs
+    @param infracharge is the list of the infracharge
+    """
+    infra = infracharge[0]
+    for key, value in cost.items():
+        originalCost = cost[key]
+        taxes = originalCost * .0305
+        cost[key] += taxes + infra
+    
+    return cost
+
+    # return owner
