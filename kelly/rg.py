@@ -1,6 +1,6 @@
 from openpyxl import load_workbook
 import pandas as pd
-from .summary import addDataAndHeader
+from summary import addDataAndHeader
 
 def rgComparer(path):
     """
@@ -22,5 +22,5 @@ def rgComparer(path):
     
     wb = load_workbook(path)
     sheet = wb["RG Comparison"]
-    addDataAndHeader(wb, sheet, path, 4, "Deleted", deleted)
-    addDataAndHeader(wb, sheet, path, 5, "Added", added)
+    addDataAndHeader(wb, sheet, path, 4, "Deleted", 45, deleted)
+    addDataAndHeader(wb, sheet, path, 5, "Added", 45, added)
