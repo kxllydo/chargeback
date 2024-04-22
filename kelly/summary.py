@@ -9,9 +9,12 @@ def addDataAndHeader (wb, ws, path, columnNum, header, width = 0, dataList = [])
     This adds all of the headers to the group summary sheet
     @param wb is the workbook loaded using openpyxl
     @param ws is the worksheet opened using openpyxl
-    @path is a string of the path to the excel workbook
-    @columnNum is the column you want to add the header to
-    @header is the header you want to add to the excel sheet
+    @param path is a string of the path to the excel workbook
+    @param columnNum is the column you want to add the header to
+    @param header is the header you want to add to the excel sheet
+    @param width is the width of the column
+    @param dataList is the list of the data you want in the column
+    @return completed data and header
     '''
     cell = ws.cell(row = 1, column = columnNum)
     cell.value = header
@@ -64,15 +67,51 @@ def merger(sheet, header):
             uniqueApps.append(value)
     return dict
 
-def creategroupSummarySheet(wb, ws, path):
+
+
+def allocationCount (sumSheet):
+    """
+    Returns the value of the infrastructure charge that is split between all groups
+    @param sumSheet sheet that is opened with pandas
+    """
+    group = "Azure Devops Organizations Charges Broken out below"
+    result = sumSheet.isin([group])
+    row, col = result.values.nonzero()
+
+    allocation = sumSheet.loc[0:row[0]-1, "PC"]
+    count = 0
+    for index, value in enumerate(allocation, start=0):
+        if value == "Allocation":
+            count+=1
+    return count
+
+def infracharge(sumSheet, total):
+    """
+    Finds the value of the infracharge
+    @param sumSheet is the summary sheet opened with pandas
+    @param total is the dictionary of all the groups and the total cost
+    """
+    groupNum = allocationCount(sumSheet)
+    print(groupNum)
+    cost = (total["Infrastructure"])/groupNum
+    length = len(total.values())
+    data  = []
+    for i in range(length):
+        data.append(cost)
+    return data
+
+def creategroupSummarySheet(wb, sumSheet, path):
     """
     Creates the group summary sheet and fills it with cost, PC, and AC
     @param wb is the workbook loaded using openpyxl
+    @param ws is the summary worksheet opened with pandas
     @param path is a string path to the workbook
     """
-    pc = merger(ws, "PC")
-    ac = merger(ws, "AC")
-    cost = groupCostMerger(ws)
+    pc = merger(sumSheet, "PC")
+    ac = merger(sumSheet, "AC")
+    cost = groupCostMerger(sumSheet)
+
+    charge = infracharge(sumSheet, cost)
 
     wb.create_sheet("Group Summary")
     ws = wb["Group Summary"]
@@ -80,7 +119,7 @@ def creategroupSummarySheet(wb, ws, path):
     
     addDataAndHeader(wb, ws, path, 1, headers[0], 49, list(cost))
     addDataAndHeader(wb, ws, path, 2, headers[1], 14.55, list(cost.values()))
-    addDataAndHeader(wb, ws, path, 3, headers[2], 12.64)
+    addDataAndHeader(wb, ws, path, 3, headers[2], 12.64, charge)
     addDataAndHeader(wb, ws, path, 4, headers[3], 13.91)
     addDataAndHeader(wb, ws, path, 5, headers[4], 16.64)
     addDataAndHeader(wb, ws, path, 5, headers[5], 15.45, list(pc.values()))
