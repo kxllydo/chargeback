@@ -10,7 +10,10 @@ if __name__ == "__main__":
 
     wb = load_workbook(excel)
     sumSheet = pd.read_excel(excel, sheet_name="Summary")
+
     summary.creategroupSummarySheet(wb, sumSheet, excel)
     summary.createChargeback(wb, sumSheet, excel)
+    summary.createTaxSheet(wb, excel, 0.0305)
+
     # rg.rgComparer(excel)
 

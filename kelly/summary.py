@@ -29,7 +29,7 @@ def addDataAndHeader (wb, ws, path, columnNum, header, width = 0, dataList = [])
 
     if width != 0:
        ws.column_dimensions[chr(64 + columnNum)].width = width 
-       
+
     wb.save(path)
 
 def groupCostMerger(sheet):
@@ -56,28 +56,35 @@ def groupCostMerger(sheet):
 
     return sumDict
 
-def merger(sheet, header):
+def merger(sheet, header1, header2 = "Group"):
     """
     General merger to assign relationship between non cost categories
     @param sheet is the sheet read in by using pandas
-    @header is the header of the data you want to access
+    @param header1 is the header of the unique data you want to access
+    @param header2
     @return a dictionary of the group and other dataset
     """
-    colLength = len(sheet["Group"]) - 1
-    applications = sheet.loc[0:colLength, "Group"]
+    colLength = len(sheet[header2]) - 1
+    applications = sheet.loc[0:colLength, header2]
     dict = {}
     uniqueApps = []
 
-    for index, value in enumerate(applications, start = 0):
-        if value not in uniqueApps:
-            dict[value] = sheet.loc[index, header]
-            uniqueApps.append(value)
+    if header2 == "Group":
+        uniqueApps = []
+        for index, value in enumerate(applications, start = 0):
+            if value not in uniqueApps:
+                dict[value] = sheet.loc[index, header1]
+                uniqueApps.append(value)
+    else:
+        for i, v in enumerate(applications, start = 0):
+            dict[v] = sheet.loc[i, header1]
+
     return dict
 
 
 def infracharge(total):
     """
-    Finds the value of the infracharge
+    Finds the value of the infracharge and makes a list of it
     @param sumSheet is the summary sheet opened with pandas
     @param total is the dictionary of all the groups and the total cost
     """
@@ -141,12 +148,16 @@ def createChargeback(wb, sumSheet, path):
     charge = infracharge(cost)
     owner = merger(sumSheet, "Owner")
 
-    finalCosts = addCharges(cost, charge)
+    for key in cost:
+        cost[key] += charge[0]
 
-    finalCosts.pop("Infrastructure")
+    # finalCosts = addCharges(cost, charge)
+
+    # finalCosts.pop("Infrastructure")
     pc.pop("Infrastructure")
     ac.pop("Infrastructure")
     owner.pop("Infrastructure")
+    cost.pop("Infrastructure")
 
     wb.create_sheet("Customer Chargeback")
 
@@ -154,6 +165,41 @@ def createChargeback(wb, sumSheet, path):
     headers = ["Owner","Applications","February (2024)","Profit Center", "AC"]
     addDataAndHeader(wb, ws, path, 1, headers[0], 31.64, list(owner.values()))
     addDataAndHeader(wb, ws, path, 2, headers[1], 32.64,  list(owner))
-    addDataAndHeader(wb, ws, path, 3, headers[2], 19, list(finalCosts.values()))
+    addDataAndHeader(wb, ws, path, 3, headers[2], 19, list(cost.values()))
+    # addDataAndHeader(wb, ws, path, 3, headers[2], 19, list(finalCosts.values()))
     addDataAndHeader(wb, ws, path, 4, headers[3], 15.91, list(pc.values()))
     addDataAndHeader(wb, ws, path, 5, headers[4], 16.64, list(ac.values()))
+
+def createTaxSheet(wb, path, tax):
+    """
+    @param wb is the workbook opened by openpyxl
+    @param path is a string of the path to the excel workbook
+    """
+    customerSheet = wb["Customer Chargeback"]
+    copy = wb.copy_worksheet(customerSheet)
+    copy.title = "Tax Chargeback"
+    wb.save(path)
+
+    ws = pd.read_excel(path, sheet_name="Tax Chargeback")
+    cost = merger(ws, "February (2024)", "Applications")
+
+    ws = wb["Tax Chargeback"]
+
+    salesTax = []
+    taxPercent = []
+
+    for i in range(len(cost)):
+        taxPercent.append(tax)
+
+    for key in cost:
+        taxes = tax * cost[key]
+        salesTax.append(taxes) 
+        cost[key] += taxes
+
+
+    addDataAndHeader(wb, ws, path, 6, "Sales tax %", 13.45, taxPercent)
+    addDataAndHeader(wb, ws, path, 7, "Sales Tax", 13.55, salesTax)
+    addDataAndHeader(wb, ws, path, 8, "Total", 16.82, list(cost.values()))
+
+
+    print(cost)
