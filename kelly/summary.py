@@ -37,7 +37,7 @@ def addDataAndHeader (wb, ws, path, columnNum, header, width = 0, dataList = [])
 
         for index, value in enumerate(dataList, start = 2):
             cell = ws.cell(row=index, column=columnNum)
-            cell.number_format = "0.00"
+            cell.style = "Currency"
 
     wb.save(path)
 
@@ -107,9 +107,9 @@ def addCharges(cost, infracharge):
     """
     infra = infracharge[0]
     for key in cost:
-        originalCost = cost[key]
-        taxes = originalCost * .0305
-        cost[key] += taxes + infra
+        cost[key] += infra
+        taxes = float(cost[key] * .0305)
+        cost[key] += taxes
     
     return cost
 
