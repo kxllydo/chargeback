@@ -1,4 +1,5 @@
 from openpyxl import Workbook, load_workbook
+from openpyxl.styles import NamedStyle
 import pandas as pd
 import csv
 import json
@@ -26,6 +27,18 @@ def addDataAndHeader (wb, ws, path, columnNum, header, width = 0, dataList = [])
     if width != 0:
        ws.column_dimensions[chr(64 + columnNum)].width = width 
 
+    if (len(dataList) != 0 ) and (isinstance(dataList[0], float)):
+        # if 'number_format' in wb.named_styles:
+        #     number_format = wb.named_styles['number_format']
+        # else:
+        #     # Create a new named style
+        #     number_format = NamedStyle(name='number_format')
+        #     wb.add_named_style(number_format)
+
+        for index, value in enumerate(dataList, start = 2):
+            cell = ws.cell(row=index, column=columnNum)
+            cell.number_format = "0.00"
+
     wb.save(path)
 
 def groupCostMerger(sheet):
@@ -39,6 +52,7 @@ def groupCostMerger(sheet):
     sumDict = {}
     uniqueApps = []
 
+    
     for index, value in enumerate(applications, start = 0):
         cost = sheet.loc[index,"February (2024)"]
         if math.isnan(cost):
@@ -48,6 +62,7 @@ def groupCostMerger(sheet):
             sumDict[value] = cost
         else:
             sumDict[value] += cost
+
     return sumDict
 
 def merger(sheet, header):
@@ -69,37 +84,34 @@ def merger(sheet, header):
     return dict
 
 
-
-def allocationCount (sumSheet):
-    """
-    Returns the value of the infrastructure charge that is split between all groups
-    @param sumSheet sheet that is opened with pandas
-    """
-    group = "Azure Devops Organizations Charges Broken out below"
-    result = sumSheet.isin([group])
-    row, col = result.values.nonzero()
-
-    allocation = sumSheet.loc[0:row[0]-1, "PC"]
-    count = 0
-    for index, value in enumerate(allocation, start=0):
-        if value == "Allocation":
-            count+=1
-    return count
-
-def infracharge(sumSheet, total):
+def infracharge(total):
     """
     Finds the value of the infracharge
     @param sumSheet is the summary sheet opened with pandas
     @param total is the dictionary of all the groups and the total cost
     """
-    groupNum = allocationCount(sumSheet)
+    groupNum = len(total) - 1
     print(groupNum)
-    cost = (total["Infrastructure"])/groupNum
+    cost = round((total["Infrastructure"]/groupNum), 2)
     length = len(total.values())
     data  = []
     for i in range(length):
         data.append(cost)
     return data
+
+def addCharges(cost, infracharge):
+    """
+    Adds sales tax 3.05% and infracharge to the total costs
+    @param cost is the dictionary of groups and total costs
+    @param infracharge is the list of the infracharge
+    """
+    infra = infracharge[0]
+    for key in cost:
+        originalCost = cost[key]
+        taxes = originalCost * .0305
+        cost[key] += taxes + infra
+    
+    return cost
 
 def creategroupSummarySheet(wb, sumSheet, path):
     """
@@ -111,8 +123,7 @@ def creategroupSummarySheet(wb, sumSheet, path):
     pc = merger(sumSheet, "PC")
     ac = merger(sumSheet, "AC")
     cost = groupCostMerger(sumSheet)
-
-    charge = infracharge(sumSheet, cost)
+    charge = infracharge(cost)
 
     wb.create_sheet("Group Summary")
     ws = wb["Group Summary"]
@@ -135,9 +146,8 @@ def createChargeback(wb, sumSheet, path):
     pc = merger(sumSheet, "PC")
     ac = merger(sumSheet, "AC")
     cost = groupCostMerger(sumSheet)
-    charge = infracharge(sumSheet, cost)
+    charge = infracharge(cost)
     owner = merger(sumSheet, "Owner")
-
 
     finalCosts = addCharges(cost, charge)
 
@@ -150,22 +160,8 @@ def createChargeback(wb, sumSheet, path):
 
     ws = wb["Customer Chargeback"]
     headers = ["Owner","Applications","February (2024)","Profit Center", "AC"]
-    addDataAndHeader(wb, ws, path, 1, headers[0], 0, list(owner.values()))
-    addDataAndHeader(wb, ws, path, 2, headers[1], 0, list(owner))
-    addDataAndHeader(wb, ws, path, 3, headers[2], 0, list(finalCosts.values()))
-    addDataAndHeader(wb, ws, path, 4, headers[3], 0, list(pc.values()))
-    addDataAndHeader(wb, ws, path, 5, headers[4], 0, list(ac.values()))
-
-def addCharges(cost, infracharge):
-    """
-    Adds sales tax 3.05% and infracharge to the total costs
-    @param cost is the dictionary of groups and total costs
-    @param infracharge is the list of the infracharge
-    """
-    infra = infracharge[0]
-    for key, value in cost.items():
-        originalCost = cost[key]
-        taxes = originalCost * .0305
-        cost[key] += taxes + infra
-    
-    return cost
+    addDataAndHeader(wb, ws, path, 1, headers[0], 31.64, list(owner.values()))
+    addDataAndHeader(wb, ws, path, 2, headers[1], 32.64,  list(owner))
+    addDataAndHeader(wb, ws, path, 3, headers[2], 19, list(finalCosts.values()))
+    addDataAndHeader(wb, ws, path, 4, headers[3], 15.91, list(pc.values()))
+    addDataAndHeader(wb, ws, path, 5, headers[4], 16.64, list(ac.values()))
