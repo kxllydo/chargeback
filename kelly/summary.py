@@ -136,14 +136,17 @@ def createChargeback(wb, sumSheet, path):
     ac = merger(sumSheet, "AC")
     cost = groupCostMerger(sumSheet)
     charge = infracharge(sumSheet, cost)
+    owner = merger(sumSheet, "Owner")
 
 
     finalCosts = addCharges(cost, charge)
-    print(finalCosts)
 
-    owner = merger(sumSheet, "Owner")
+    finalCosts.pop("Infrastructure")
+    pc.pop("Infrastructure")
+    ac.pop("Infrastructure")
+    owner.pop("Infrastructure")
+
     wb.create_sheet("Customer Chargeback")
-    cost = groupCostMerger(sumSheet)
 
     ws = wb["Customer Chargeback"]
     headers = ["Owner","Applications","February (2024)","Profit Center", "AC"]
@@ -166,5 +169,3 @@ def addCharges(cost, infracharge):
         cost[key] += taxes + infra
     
     return cost
-
-    # return owner

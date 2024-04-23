@@ -23,6 +23,7 @@ if __name__ == "__main__":
     wb = load_workbook(chargeback)
     sumSheet = pd.read_excel(chargeback, sheet_name = "Summary")
     summary.creategroupSummarySheet(wb, sumSheet, chargeback)
+    summary.createChargeback(wb, sumSheet, chargeback)
 
 
 if __name__ == "__main__3":
