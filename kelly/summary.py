@@ -1,14 +1,12 @@
 from openpyxl import Workbook, load_workbook
-from openpyxl.styles import NamedStyle
+from openpyxl.styles import Font, Alignment
 import pandas as pd
-import csv
-import json
 import math
 import time
 
 def addDataAndHeader (wb, ws, path, columnNum, header, width = 0, dataList = []):
     '''
-    This adds all of the headers to the group summary sheet
+    This adds all of the headers to the group summary sheet and their respective values
     @param wb is the workbook loaded using openpyxl
     @param ws is the worksheet opened using openpyxl
     @param path is a string of the path to the excel workbook
@@ -20,25 +18,18 @@ def addDataAndHeader (wb, ws, path, columnNum, header, width = 0, dataList = [])
     '''
     cell = ws.cell(row = 1, column = columnNum)
     cell.value = header
+    cell.font = Font(bold=True)
+    cell.alignment = Alignment(horizontal = "center")
+
     for index, value in enumerate(dataList, start=2):
         cell = ws.cell(row=index, column=columnNum)
         cell.value = value
+        if (len(dataList) != 0 ) and (isinstance(dataList[0], float)):
+            cell.style = "Currency"
 
     if width != 0:
        ws.column_dimensions[chr(64 + columnNum)].width = width 
-
-    if (len(dataList) != 0 ) and (isinstance(dataList[0], float)):
-        # if 'number_format' in wb.named_styles:
-        #     number_format = wb.named_styles['number_format']
-        # else:
-        #     # Create a new named style
-        #     number_format = NamedStyle(name='number_format')
-        #     wb.add_named_style(number_format)
-
-        for index, value in enumerate(dataList, start = 2):
-            cell = ws.cell(row=index, column=columnNum)
-            cell.style = "Currency"
-
+       
     wb.save(path)
 
 def groupCostMerger(sheet):
@@ -117,7 +108,7 @@ def creategroupSummarySheet(wb, sumSheet, path):
     """
     Creates the group summary sheet and fills it with cost, PC, and AC
     @param wb is the workbook loaded using openpyxl
-    @param ws is the summary worksheet opened with pandas
+    @param sumSheet is the summary worksheet opened with pandas
     @param path is a string path to the workbook
     """
     pc = merger(sumSheet, "PC")
@@ -140,8 +131,9 @@ def creategroupSummarySheet(wb, sumSheet, path):
 def createChargeback(wb, sumSheet, path):
     """
     Creates chargeback sheet for the month
-    @param is the workbook opened by openpyxl
-    @param is the summary sheet opened by pandas
+    @param wb is the workbook opened by openpyxl
+    @param sumsheet is the summary sheet opened by pandas
+    @param path is the path to the excel workbook
     """
     pc = merger(sumSheet, "PC")
     ac = merger(sumSheet, "AC")
