@@ -12,13 +12,14 @@ def rgComparer(path):
     currentMonthRg = comparison["Current Month RG"].tolist()
 
     deleted, added = [], []
-    for rgs in lastMonthRg:
-        if lastMonthRg not in currentMonthRg:
-            deleted.append(rgs)
 
-    for rg in currentMonthRg:
-        if currentMonthRg not in lastMonthRg:
-            added.append(rg)
+    for rg in lastMonthRg:
+        if rg not in currentMonthRg:
+            deleted.append(rg)
+
+    for rgs in currentMonthRg:
+        if rgs not in lastMonthRg:
+            added.append(rgs)
     
     wb = load_workbook(path)
     sheet = wb["RG Comparison"]
