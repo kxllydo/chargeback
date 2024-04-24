@@ -2,6 +2,8 @@ from kelly import summary
 from kelly import rg
 from steven import resourcegroups
 from steven import summary as summary2
+from openpyxl import load_workbook
+import pandas as pd
 
 import openpyxl as excel
 
@@ -21,6 +23,11 @@ if __name__ == "__main__":
     resourcegroups.step_two(chargeback, chargeback2)
     summary2.step_three(chargeback, billingCycle)
     summary2.step_four(chargeback, chargeback2)
+
+    wb = load_workbook("chargeback")
+    summarySheet = pd.read_excel("Summary")
+    summary.createChargebacks(wb, chargeback, summarySheet, 0.0305)
+
 
 # def validateOption (prompt, options):
 #     valid = False
