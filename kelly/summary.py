@@ -1,8 +1,7 @@
 from openpyxl import Workbook, load_workbook
-from openpyxl.styles import Font, Alignment
+from openpyxl.styles import Font, Alignment, NamedStyle
 import pandas as pd
 import math
-import time
 
 def addDataAndHeader (wb, pyxlWS, path, columnNum, header, width = 0, dataList = []):
     '''
@@ -24,7 +23,9 @@ def addDataAndHeader (wb, pyxlWS, path, columnNum, header, width = 0, dataList =
     for index, value in enumerate(dataList, start=2):
         cell = pyxlWS.cell(row=index, column=columnNum)
         cell.value = value
-        if (len(dataList) != 0 ) and (isinstance(dataList[0], float)):
+        if (header == "Sales Tax %"):
+            cell.number_format = "0.00%"
+        elif (len(dataList) != 0 ) and (isinstance(dataList[0], float)):
             cell.style = "Currency"
 
     if width != 0:
@@ -179,7 +180,7 @@ def createTaxSheet(wb, path, tax):
         salesTax.append(taxes) 
         cost[key] += taxes
 
-    addDataAndHeader(wb, ws, path, 6, "Sales tax %", 13.45, taxPercent)
+    addDataAndHeader(wb, ws, path, 6, "Sales Tax %", 13.45, taxPercent)
     addDataAndHeader(wb, ws, path, 7, "Sales Tax", 13.55, salesTax)
     addDataAndHeader(wb, ws, path, 8, "Total", 16.82, list(cost.values()))
     
