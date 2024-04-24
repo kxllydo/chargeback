@@ -31,7 +31,12 @@ def check_for_perms(path = "."):
         print(f"Please grant WRITE permissions to {os.path.abspath(path)}")
         exit(-1)
 
-def addColumn(worksheet, columnIndex, header, width = 0, data = [], format = {}):
+def addColumn(worksheet, columnIndex, header, width = 8.11, data = [], format = {}, overwrite = True):
+    if columnIndex < 0:
+        columnIndex = worksheet.max_column + columnIndex + 1
+
+    if not overwrite:
+        worksheet.insert_cols(columnIndex, 1)
     worksheet.column_dimensions[get_column_letter(columnIndex)].width = width
 
     cell = worksheet.cell(row = 1 + ROW_PADDING, column = columnIndex)
@@ -44,12 +49,7 @@ def addColumn(worksheet, columnIndex, header, width = 0, data = [], format = {})
         cell.value = value
 
         for key, value in format.items():
-            cell[key] = value
-
-def addRow(worksheet, rowIndex = -1, data = []):
-    if rowIndex == -1:
-        rowIndex = worksheet.max_row + 1
-    worksheet.insert_rows(rowIndex, 1)
-
-    for index, value in enumerate(data, start = 1):
-        worksheet.cell(row = rowIndex, column = index, value = value)
+            if key == "number_format":
+                cell.number_format = value
+            else:
+                print(f"{key} not supported in addColumn")

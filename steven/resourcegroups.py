@@ -1,7 +1,7 @@
 import openpyxl as excel
 import pandas as pd
 
-from . import helper
+from . import helper as helper
 
 def extract_billing(billing):
     """
@@ -49,15 +49,21 @@ def step_one(billing, chargeback):
     helper.addColumn(worksheet, 1, helper.LAST_MONTH_RGS, 50.45)
     helper.addColumn(worksheet, 2, helper.CURRENT_MONTH_RGS, 50.45, data[helper.CURRENT_MONTH_RGS])
     helper.addColumn(worksheet, 3, "Cost", 11.18, data["Cost"])
-    
-    grand_total = sum(data["Cost"].to_list())
-    helper.addRow(worksheet, data = ["", "", grand_total])
 
     workbook.save(chargeback)
     workbook.close()
 
 def step_two(chargeback1, chargeback2):
     helper.check_for_perms(chargeback1)
-    helper.check_for_perms(chargeback2)
 
-    data = pd.read_excel(chargeback1, sheet_name = helper.RGSHEET)
+    data = pd.read_excel(chargeback1, sheet_name = helper.RGSHEET, header = helper.ROW_PADDING)
+    data = data[helper.CURRENT_MONTH_RGS].to_list()
+
+    workbook = excel.load_workbook(chargeback2)
+    worksheet = workbook[helper.RGSHEET] if helper.RGSHEET in workbook.sheetnames else workbook.create_sheet(helper.RGSHEET)
+    worksheet.delete_cols(1, 5)
+
+    helper.addColumn(worksheet, 1, helper.LAST_MONTH_RGS, 50.45, data)
+    
+    workbook.save(chargeback2)
+    workbook.close()
