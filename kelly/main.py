@@ -11,10 +11,10 @@ if __name__ == "__main__":
     wb = load_workbook(excel)
     sumSheet = pd.read_excel(excel, sheet_name="Summary")
 
-    summary.createChargebacks(wb, excel, sumSheet, 0.0305)
+    # summary.createChargebacks(wb, excel, sumSheet, 0.0305)
     # summary.creategroupSummarySheet(wb, sumSheet, excel)
     # summary.createCustomerSheet(wb, sumSheet, excel)
 
-    # rg.rgComparer(excel)
+    rg.rgComparer(excel)
 
     # print(summary.merger(pd.read_excel(excel, "Tax Chargeback"), "Total", "Applications"))
