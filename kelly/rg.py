@@ -1,6 +1,6 @@
 from openpyxl import load_workbook
 import pandas as pd
-from summary import addDataAndHeader
+from kelly.summary import addDataAndHeader
 
 def rgComparer(path):
     """

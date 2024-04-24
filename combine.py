@@ -1,22 +1,30 @@
 #from kelly import summary, rg
 from openpyxl import Workbook, load_workbook
 import pandas as pd
+from openAI.steven.steps import resourcegroups
 import validator
 import csv
 import json
 import math
 
-from steven.steps import stepone, stepthree
+from steven.steps import resourcegroups
 from kelly import summary, rg
 
 if __name__ == "__main__":
+    billing = "../archives/2024/February/billing.csv"
+    chargeback = "../archives/2024/February/chargeback.xlsx"
+
+    resourcegroups.step_one(billing, chargeback)
+    rg.rgComparer(chargeback)
+
+if __name__ == "__ma2in__":
     print("")
     
     archive_directory = "../archives/2024/February"
     billing = archive_directory + "/billing.csv"
     chargeback = archive_directory + "/chargeback.xlsx"
 
-    stepone.step_one(billing, chargeback)
+    resourcegroups.step_one(billing, chargeback)
     rg.rgComparer(chargeback)
     stepthree.step_three(chargeback, "Feb (2024)")
 
