@@ -170,15 +170,20 @@ def createTaxSheet(wb, path, tax):
     cost = merger(pandaWs, "February (2024)", "Applications")
     ws = wb["Tax Chargeback"]
 
+    notTaxed = ["Chile", "EDC", "Spain CPD", "Mexico Backups"]
+
     salesTax = []
     taxPercent = []
 
-    for i in range(len(cost)):
-        taxPercent.append(tax)
     for key in cost:
-        taxes = tax * cost[key]
-        salesTax.append(taxes) 
-        cost[key] += taxes
+        if key not in notTaxed:
+            taxPercent.append(tax)
+            taxes = tax * cost[key]
+            salesTax.append(taxes) 
+            cost[key] += taxes
+        else:
+            taxPercent.append(0.00)
+
 
     addDataAndHeader(wb, ws, path, 6, "Sales Tax %", 13.45, taxPercent)
     addDataAndHeader(wb, ws, path, 7, "Sales Tax", 13.55, salesTax)
